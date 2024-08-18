@@ -12,7 +12,7 @@ const FoodDisplay: React.FC<FoodDisplayProp> = ({ category }) => {
 
   // Ensure context is not undefined before accessing its properties
   if (!storeContext) {
-    return <div>Error: Store context is not available right now</div>;
+    return <div>Error: Store context is not available</div>;
   }
 
   const { food_list } = storeContext;
