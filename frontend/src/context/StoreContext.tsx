@@ -8,21 +8,22 @@ interface FoodItemType {
   description: string;
   price: number;
   image: string;
+  category: string;
 }
 
 interface StoreContextType {
   food_list: FoodItemType[];
   cartItems: CartItems;
   setCartItems: React.Dispatch<React.SetStateAction<CartItems>>;
-  addToCart: (itemId: number) => void;
-  removeFromCart: (itemId: number) => void;
+  addToCart: (itemId: string) => void;
+  removeFromCart: (itemId: string) => void;
 }
 interface StoreContextProviderProps {
   children: ReactNode;
 }
 
 interface CartItems {
-  [key: number]: number;
+  [key: string]: number;
 }
 
 export const StoreContext = createContext<StoreContextType | undefined>(
@@ -32,16 +33,11 @@ export const StoreContext = createContext<StoreContextType | undefined>(
 const StoreContextProvider: React.FC<StoreContextProviderProps> = (props) => {
   const [cartItems, setCartItems] = useState<CartItems>({});
 
-  const addToCart = (itemId: number) => {
-    // if (!cartItems[itemId]) {
-    //   setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
-    // } else {
-    //   setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-    // }
+  const addToCart = (itemId: string) => {
     setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
   };
 
-  const removeFromCart = (itemId: number) => {
+  const removeFromCart = (itemId: string) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 

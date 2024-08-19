@@ -4,7 +4,7 @@ import "./FoodItem.css";
 import { StoreContext } from "../../context/StoreContext";
 
 interface FoodItemProps {
-  id: number;
+  id: string;
   name: string;
   price: number;
   description: string;
