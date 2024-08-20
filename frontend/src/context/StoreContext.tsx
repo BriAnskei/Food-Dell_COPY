@@ -17,6 +17,7 @@ interface StoreContextType {
   setCartItems: React.Dispatch<React.SetStateAction<CartItems>>;
   addToCart: (itemId: string) => void;
   removeFromCart: (itemId: string) => void;
+  getTotalCartAmount: () => number;
 }
 interface StoreContextProviderProps {
   children: ReactNode;
@@ -41,9 +42,17 @@ const StoreContextProvider: React.FC<StoreContextProviderProps> = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  const getTotalCartAmount = () => {
+    let totalAmount = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let ItemInfo = food_list.find((product) => product._id === item);
+        if (!ItemInfo) return 0;
+        totalAmount += ItemInfo.price * cartItems[item];
+      }
+    }
+    return totalAmount;
+  };
 
   const contextValue: StoreContextType = {
     food_list,
@@ -51,6 +60,7 @@ const StoreContextProvider: React.FC<StoreContextProviderProps> = (props) => {
     setCartItems,
     addToCart,
     removeFromCart,
+    getTotalCartAmount,
   };
 
   return (

@@ -1,4 +1,3 @@
-import assert from "assert";
 import { assets } from "../../assets/assets";
 import "./Footer.css";
 
