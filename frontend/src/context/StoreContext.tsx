@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 import { food_list } from "../assets/assets";
 
 // Define the type of food_list (assuming it's an array of objects)
@@ -47,7 +47,7 @@ const StoreContextProvider: React.FC<StoreContextProviderProps> = (props) => {
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
         let ItemInfo = food_list.find((product) => product._id === item);
-        if (!ItemInfo) return 0;
+        if (!ItemInfo) continue;
         totalAmount += ItemInfo.price * cartItems[item];
       }
     }

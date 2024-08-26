@@ -1,34 +1,57 @@
+/* Importing the Outfit font family from Google Fonts with a range of font weights */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-
+/* Applying global styles to all elements */
 * {
-  padding:  0;
-  margin:  0;
+  /* Remove default padding from all elements */
+  padding: 0;
+  
+  /* Remove default margin from all elements */
+  margin: 0;
+  
+  /* Adjust box model so padding and border are included in element's total width/height */
   box-sizing: border-box;
+  
+  /* Set the font family to Outfit for all text */
   font-family: Outfit;
+  
+  /* Enable smooth scrolling for anchor links and other scrollable actions */
   scroll-behavior: smooth;
 }
 
+/* Ensuring the body takes at least the full viewport height */
 body {
+  /* Set the minimum height to 100% of the dynamic viewport height */
   min-height: 100dvh;
 }
 
+/* Styling for anchor links */
 a {
-  text-decoration:  none;
+  /* Remove default underline from links */
+  text-decoration: none;
+  
+  /* Make the link color inherit from its parent element */
   color: inherit;
 }
 
+/* Styling for the main container with class 'app' */
 .app {
+  /* Set the width of the container to 80% of its parent */
   width: 80%;
+  
+  /* Center the container horizontally within its parent */
   margin: auto;
 }
 
-
-/* animaton in the hompage header text */
+/* Animation for fading in elements */
 @keyframes fadeIn {
+  /* Start of the animation: element is fully transparent */
   0% {
     opacity: 0;
-  } 100% {
+  }
+  
+  /* End of the animation: element is fully opaque */
+  100% {
     opacity: 1;
   }
 }

@@ -22,8 +22,8 @@ const FoodDisplay: React.FC<FoodDisplayProp> = ({ category }) => {
       <h2>Top dishes near you</h2>
       <div className="food-display-list">
         {food_list.map((item, index) => {
-          if (category === "All" || category === item.category) {
-            return (
+          return (
+            (category === "All" || category === item.category) && (
               <FoodItem
                 key={index}
                 id={item._id}
@@ -32,9 +32,8 @@ const FoodDisplay: React.FC<FoodDisplayProp> = ({ category }) => {
                 price={item.price}
                 image={item.image}
               />
-            );
-          }
-          return null;
+            )
+          );
         })}
       </div>
     </div>

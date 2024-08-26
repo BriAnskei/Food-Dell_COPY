@@ -3,7 +3,7 @@ import { menu_list } from "../../assets/assets";
 
 interface ExploreMenuProps {
   category: string;
-  setCategory: (text: string | ((prev: string) => string)) => void;
+  setCategory: (text: string | ((prev: string) => string)) => void; // Ensure to get the category and can be also settable.
 }
 
 const ExploreMenu = ({ category, setCategory }: ExploreMenuProps) => {

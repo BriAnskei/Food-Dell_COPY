@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom"; // useNavigate for form submission
+
 const Cart = () => {
   let storeContext = useContext(StoreContext);
 
@@ -28,8 +30,8 @@ const Cart = () => {
         <br />
         <hr />
         {food_list.map((item, index) => {
-          if (cartItems[item._id] > 0) {
-            return (
+          return (
+            cartItems[item._id] > 0 && (
               <>
                 <div key={index} className="cart-items-tittle cart-items-item">
                   <img src={item.image} alt="" />
@@ -43,8 +45,8 @@ const Cart = () => {
                 </div>
                 <hr />
               </>
-            );
-          }
+            )
+          );
         })}
       </div>
       <div className="cart-botton">
