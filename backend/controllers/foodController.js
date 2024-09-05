@@ -41,10 +41,10 @@ const removeFood = async (request, response) => {
     filesystem.unlink(`uploads/${food.image}`, () => {});
 
     await foodModel.findByIdAndDelete(request.body.id);
-    response.json({ succes: true, message: "Food Remove" });
+    response.json({ success: true, message: "Food Remove" });
   } catch (error) {
     console.log(error);
-    response.json({ succes: false, message: "Error" });
+    response.json({ success: false, message: "Error" });
   }
 };
 

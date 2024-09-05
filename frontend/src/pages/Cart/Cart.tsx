@@ -9,7 +9,7 @@ const Cart = () => {
 
   if (!storeContext) return;
 
-  const { food_list, cartItems, removeFromCart, getTotalCartAmount } =
+  const { food_list, cartItems, removeFromCart, getTotalCartAmount, url } =
     storeContext;
 
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Cart = () => {
         <div className="cart-items">
           <div className="cart-items-tittle">
             <p>Item</p>
-            <p>Tittle</p>
+            <p>Name</p>
             <p>Price</p>
             <p>Quantity</p>
             <p>Total</p>
@@ -34,7 +34,7 @@ const Cart = () => {
             cartItems[item._id] > 0 && (
               <>
                 <div key={index} className="cart-items-tittle cart-items-item">
-                  <img src={item.image} alt="" />
+                  <img src={`${url}/images/${item.image}`} alt="" />
                   <p>{item.name}</p>
                   <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
